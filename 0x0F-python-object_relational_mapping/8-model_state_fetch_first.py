@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Prints the first State object from the database hbtn_0e_6_usa
+This script prints the first State object
+from the database `hbtn_0e_6_usa`.
 """
 
 from sys import argv
