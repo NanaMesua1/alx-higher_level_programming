@@ -20,6 +20,6 @@ if __name__ == "__main__":
     first_state = session.query(State).order_by(State.id).first()
     
     if first_state:
-        print("{}: {}".format(first_state.id, first_state.name))
+        print("{0}: {1}".format(first_state.id, first_state.name))
     else:
         print("Nothing")
