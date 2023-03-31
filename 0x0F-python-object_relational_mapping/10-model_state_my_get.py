@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # Lists the State object with the name passed as argument
 # from the database hbtn_0e_6_usa.
-                                 <state name searched>
+                              
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
