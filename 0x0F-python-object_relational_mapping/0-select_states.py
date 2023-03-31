@@ -1,13 +1,21 @@
 #!/usr/bin/python3
-# Lists all states from the database hbtn_0e_0_usa.
-# Usage: ./0-select_states.py <mysql username> \
-#                             <mysql password> \
-#                             <database name>
+"""Script that takes in an argument and displays all values in the states
+table of hbtn_0e_0_usa where name matches the argument"""
+
 import sys
 import MySQLdb
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
-    c.execute("SELECT * FROM `states`")
-    [print(state) for state in c.fetchall()]
+if __name__ == '__main__':
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    search = sys.argv[4]
+
+    db = MySQLdb.connect(user=username, passwd=password, db=database)
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC", (search,))
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    db.close()
