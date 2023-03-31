@@ -1,15 +1,10 @@
 #!/usr/bin/python3
-# Lists all cities of the database hbtn_0e_4_usa, ordered by city id.
+"""Lists all cities of the database hbtn_0e_4_usa, ordered by city id"""
 
 import MySQLdb
 from sys import argv
 
 if __name__ == '__main__':
-    """
-    Access to the database and get the cities
-    from the database.
-    """
-
     db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
                          passwd=argv[2], db=argv[3])
 
