@@ -6,16 +6,16 @@ import sys
 import MySQLdb
 
 if __name__ == '__main__':
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    search = sys.argv[4]
+    """
+    Access to the database and get the states
+    from the database.
+    """
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    db = MySQLdb.connect(user=username, passwd=password, db=database)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY %s ORDER BY id ASC", (search,))
+    cur.execute("SELECT * FROM states")
     rows = cur.fetchall()
+
     for row in rows:
         print(row)
-    cur.close()
-    db.close()
