@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-# Defines a State model.
-# Inherits from SQLAlchemy Base and links to the MySQL table states.
+"""
+Defines a State model.
+Inherits from SQLAlchemy Base and links to the MySQL table states.
+"""
 
 
 from sqlalchemy import Column, Integer, String
@@ -11,13 +13,7 @@ Base = declarative_base()
 
 
 class State(Base):
-    """State class
-    Attributes:
-        __tablename__ (str): The table name of the class
-        id (int): The State id of the class
-        name (str): The State name of the class
-        cities (:obj:`City`): The Cities belongs to State
-    """
+ 
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True)
